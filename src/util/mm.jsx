@@ -2,7 +2,7 @@ const conf = {
    
     // dev
     serverHost: '',
-    imageHost: '',
+    imageHost: 'http://img.zyjblogs.cn/', 
 }
 
 class MMUtil{
