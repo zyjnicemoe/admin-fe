@@ -17,6 +17,12 @@ export default class User{
                 msg: '密码不能为空'
             }
         }
+		if(!userInfo.code){
+		    return {
+		        state: false,
+		        msg: '验证码不能为空'
+		    }
+		}
         return {
             state: true,
             msg: '验证通过'
@@ -29,7 +35,8 @@ export default class User{
             method  : 'POST',
             data    : {
                 username : userInfo.username || '',
-                password : userInfo.password || ''
+                password : userInfo.password || '',
+				code : userInfo.code || ''
             }
         });
     }

@@ -6,21 +6,31 @@ import User from 'service/user.jsx';
 
 const _mm    = new MMUtile();
 const _user  = new User();
-
+ // let url='http://localhost:8080/manage/user/getVerifiCodeImage.do';
 const Login = React.createClass({
+	
     getInitialState() {
         return {
             username : '',
             password : '',
+		    // url:'',
             redirect : _mm.getHashParam('redirect')
         };
-    },
+    }
+	// ,	
+	// updateImage: function(url) {
+	//   console.log("Updating state.url with " + this.state.url);
+	//   this.setState({ url: 'http://localhost:8080/manage/user/getVerifiCodeImage.do?'+ new Date().getTime()});
+	// }
+
+	,
     // 点击登录
     onLogin(e){
         e.preventDefault();
         let loginInfo   = {
                 username: this.state.username,
-                password: this.state.password
+                password: this.state.password,
+				code:this.state.verifiCode
             },
             checkLogin  = _user.checkLoginInfo(loginInfo);
         if(checkLogin.state){
@@ -70,6 +80,17 @@ const Login = React.createClass({
                                         type="password" 
                                         onChange={this.onInputChange}/>
                                 </div>
+								<img className="img"  src={"/manage/user/getVerifiCodeImage.do?"}/>
+								<div className="form-group">
+								    <input className="form-control" 
+								        placeholder="验证码" 
+								        name="verifiCode" 
+								        type="text" 
+										autoComplete="off" 
+										autoFocus 
+								        onChange={this.onInputChange}/>
+								</div>
+								
                                 <button type="submit" className="btn btn-lg btn-primary btn-block">Login</button>
                             </form>
                         </div>
