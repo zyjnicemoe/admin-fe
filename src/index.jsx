@@ -12,6 +12,7 @@ import 'node_modules/sb-admin-2/dist/css/sb-admin-2.min.css';
 // font-awesome 字体
 import 'node_modules/font-awesome/css/font-awesome.min.css';
 
+
 // 页面
 import Layout               from 'page/layout/index.jsx';
 import Home                 from 'page/home/index.jsx';
